@@ -80,7 +80,7 @@ const Login = () => {
                     <Grid container>
                         <Grid item>
                             <Link to="/register">
-                                {"Don't have an account? Buat Akun"}
+                                {"Don't have an account? Sign Up"}
                             </Link>
                         </Grid>
                     </Grid>
