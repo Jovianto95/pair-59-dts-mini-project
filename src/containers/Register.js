@@ -31,7 +31,7 @@ const Register = () => {
     };
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" sx={{bgcolor: "white"}}>
             <Box
                 sx={{
                     mt: 10,
