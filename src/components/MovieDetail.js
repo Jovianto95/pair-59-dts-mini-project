@@ -9,9 +9,9 @@ const MovieDetail = ({ data }) => {
       <div className="detail-movie-poster">
         <div className="detail-movie-poster-contain">
           <h1>{`${data.title} (${data.release_date})`}</h1>
-          <div className="truncate">
-            <p>{data.overview}</p>
-          </div>
+//           <div className="truncate">
+//             <p>{data.overview}</p>
+//           </div>
           <div className="button-group">
             <button className="play-button">
               <img src="/play-button.png" className="play-icon" alt="" />
