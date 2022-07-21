@@ -75,7 +75,7 @@ const Navbar = () => {
             }}
           >
             <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to="/">
-              |Web Film DigiTelent
+              |DigiTalent Film Site
             </Link>
           </Typography>
           <Typography

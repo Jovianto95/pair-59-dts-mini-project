@@ -6,10 +6,10 @@ import { useParams } from "react-router-dom";
 export const DetailMovie = () => {
   let params = useParams();
 
-  const [movies, setMovies] = useState([]);
+  // const [movies, setMovies] = useState([]);
   const [movie, setMovie] = useState([]);
 
-  const idMovie = params?.id;
+  const idMovie = params.id;
   useEffect(() => {
     const fetchMovie = async () => {
       try {
@@ -27,7 +27,7 @@ export const DetailMovie = () => {
     const fetchMovies = async () => {
       try {
         const fetchedMovies = await tmdb.get("trending/movie/week");
-        setMovies(fetchedMovies.data.results);
+        setMovie(fetchedMovies.data.results);
       } catch (error) {
         console.log(error);
       }

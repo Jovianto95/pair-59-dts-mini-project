@@ -8,18 +8,18 @@ const MovieDetail = ({ data }) => {
     <div>
       <div className="detail-movie-poster">
         <div className="detail-movie-poster-contain">
-          <h1>{`${data.title} (${data.release_date?.split("-")[0]})`}</h1>
+          <h1>{`${data.title} (${data.release_date.split("-")[0]})`}</h1>
           <div className="truncate">
             <p>{data.overview}</p>
           </div>
           <div className="button-group">
             <button className="play-button">
               <img src="/play-button.png" className="play-icon" alt="" />
-              <a href="https://www.youtube.com/watch?v=3pzxzxB25f8&ab_channel=TRANSTVOfficial"><span
+              <a href="https://www.youtube.com/watch?v=3pzxzxB25f8ab_channel=TRANSTVOfficial"><span
                 className="play-button-text"
                 style={{ paddingLeft: "10px" }}
               >
-                Putar
+                Play
               </span></a>
             </button>
             <button className="info-button">
@@ -33,7 +33,7 @@ const MovieDetail = ({ data }) => {
                 className="info-button-text"
                 style={{ paddingLeft: "15px" }}
               >
-                Selengkapnya
+                Full Version
               </span>
             </button>
           </div>

@@ -5,7 +5,7 @@ const About = () => {
         
     return (
         <Box sx={{ mt: 10 }}>
-            <h3><center>Tonton Film berkualitas dan terlengkap hanya di WEB Film DTS! </center></h3><br/>
+            <h3><center>Watch Top Quality Movies only at DTS FILM</center></h3><br/>
             
         </Box>
     );

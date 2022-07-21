@@ -42,7 +42,7 @@ export default function Footer() {
       >
         <Container maxWidth="sm">
           <Typography variant="body1">
-            MINI PROJECT DIGITALENT RJS
+            MINI PROJECT DIGITALENT REACT DEVELOPER
           </Typography>
           <Copyright />
         </Container>
