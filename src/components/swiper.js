@@ -8,9 +8,9 @@ import {Autoplay, Pagination, Navigation} from 'swiper';
 import {Card} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
-const slideShow = ()=>{
+const SlideShow = ()=>{
     const [movies, setMovies]= useState([]);
-    const baseUrlForMovie = 'https://image.tmdb.org/t/p/w300';
+    const baseUrlForMovie = 'https://www.themoviedb.org/t/p';
 
     useEffect(()=>{
         const fetchDataMovies = async () => {
@@ -57,4 +57,4 @@ const slideShow = ()=>{
     )
 };
 
-export default slideShow;
+export default SlideShow;

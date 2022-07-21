@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import MovieDetail from "../components/MovieDetail";
 import tmdb from "../apis/tmdb";
 import { useParams } from "react-router-dom";
-
 export const DetailMovie = () => {
   let params = useParams();
 
@@ -39,7 +38,6 @@ export const DetailMovie = () => {
   return (
     <>
       <MovieDetail data={movie} />
-
     </>
   );
 };
