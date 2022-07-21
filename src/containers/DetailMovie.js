@@ -14,7 +14,7 @@ export const DetailMovie = () => {
     const fetchMovie = async () => {
       try {
         const fetchedMovie = await tmdb.get(`movie/${idMovie}`);
-        setMovie(fetchedMovie.data);
+        setMovies(fetchedMovie.data);
       } catch (error) {
         console.log(error);
       }
