@@ -9,7 +9,7 @@ export const DetailMovie = () => {
   const [movies, setMovies] = useState([]);
   const [movie, setMovie] = useState([]);
 
-  const idMovie = params?.id;
+  const idMovie = params.id;
   useEffect(() => {
     const fetchMovie = async () => {
       try {
