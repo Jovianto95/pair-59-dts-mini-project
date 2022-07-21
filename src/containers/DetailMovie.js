@@ -2,18 +2,19 @@ import React, { useEffect, useState } from "react";
 import MovieDetail from "../components/MovieDetail";
 import tmdb from "../apis/tmdb";
 import { useParams } from "react-router-dom";
+
 export const DetailMovie = () => {
   let params = useParams();
 
   const [movies, setMovies] = useState([]);
   const [movie, setMovie] = useState([]);
 
-  const idMovie = params.id;
+  const idMovie = params?.id;
   useEffect(() => {
     const fetchMovie = async () => {
       try {
         const fetchedMovie = await tmdb.get(`movie/${idMovie}`);
-        setMovies(fetchedMovie.data);
+        setMovie(fetchedMovie.data);
       } catch (error) {
         console.log(error);
       }
@@ -26,7 +27,7 @@ export const DetailMovie = () => {
     const fetchMovies = async () => {
       try {
         const fetchedMovies = await tmdb.get("trending/movie/week");
-        setMovie(fetchedMovies.data.results);
+        setMovies(fetchedMovies.data.results);
       } catch (error) {
         console.log(error);
       }
@@ -41,4 +42,5 @@ export const DetailMovie = () => {
     </>
   );
 };
+
 export default DetailMovie;
