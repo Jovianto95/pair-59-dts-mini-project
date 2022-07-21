@@ -1,29 +1,30 @@
-import React, { useEffect } from 'react';
-import Navbar from './components/navBar';
-import HomePage from './containers/HomePage';
-import {useNavigate} from 'react-router-dom';
-import {useAuthState} from 'react-firebase-hooks/auth';
-import {auth} from './authentications/firebase';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./container/HomePage";
+import DetailFilm from "./pages/DetailFilm";
+import LoginPage from "./container/LoginPage";
+import RegisterPage from "./container/RegisterPage";
+import ProtectedComponent from "./component/ProtectedComponent";
+import ListMovieAsli from "./container/ListMovieAsli";
 
-function App(){
-  const navigate = useNavigate();
-  const [user, isLoading, error] = useAuthState(auth);
-
-  useEffect(
-    ()=>{
-      if (isLoading){
-        return;
-      }
-      if(!user){
-        navigate('/');
-      }
-    }, [user, isLoading, navigate]
-  );
-  
-  return(
-    <div className='App'>
-      <Navbar />
-      <HomePage />
+function App() {
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/DetailFilm/:MovieID"
+          element={
+            <ProtectedComponent>
+              <DetailFilm />
+            </ProtectedComponent>
+          }
+        />
+        <Route path="/Login" element={<LoginPage />} />
+        <Route path="/Register" element={<RegisterPage />} />
+        <Route path="/ListMovieAsli/:MovieType" element={<ListMovieAsli />} />
+        {/* <Route path="about" element={<About />} /> */}
+      </Routes>
     </div>
   );
 }

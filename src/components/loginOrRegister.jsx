@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styles from './loginOrRegister.modules.css';
 import {Grid, Box, Button, TextField, Typography} from "@mui/material";
 import {Link, useNavigate} from "react-router-dom";
+import {auth, loginWithEmailAndPassword, registerWithEmailAndPassword} from "../authentications/firebase";
+import {useAuthState} from 'react-firebase-hooks/auth';
 
 const LoginOrRegisterForm = ({loginOrRegister}) => {
     const navigate = useNavigate();
-
+    const [user, isLoading, error] = useAuthState(auth);
     const [credential, setCredential] = useState({
         email: '',
         password: '',
@@ -20,13 +22,11 @@ const LoginOrRegisterForm = ({loginOrRegister}) => {
     };
 
     const loginHandler = () => {
-        console.log("Login");
-        navigate('/');
+        loginWithEmailAndPassword(credential.email, credential.password);
     };
 
     const registerHandler = () => {
-        console.log('Register');
-        navigate('/login');
+        registerWithEmailAndPassword(credential.email, credential.password);
     };
 
     const buttonLoginOrRegisterOnClickHandler = () => {
@@ -36,6 +36,18 @@ const LoginOrRegisterForm = ({loginOrRegister}) => {
             registerHandler();
         }
     };
+
+    useEffect(
+        ()=>{
+            if(isLoading) {
+                return;
+            };
+            if(user){
+                navigate('/');
+            }
+        },
+    [user, isLoading, navigate]
+    );
 
     return (
         <Grid container
