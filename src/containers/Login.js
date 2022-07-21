@@ -32,7 +32,7 @@ const Login = () => {
 
     return (
         <><Navbar/>
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" sx={{bgcolor: "white"}}>
             <Box
                 sx={{
                     mt: 10,
@@ -45,7 +45,7 @@ const Login = () => {
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                    WEB FILM DTS
+                    DigiTalent Film Site
                 </Typography>
                 <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                     <TextField
@@ -75,7 +75,7 @@ const Login = () => {
                         variant="contained"
                         sx={{ mt: 3, mb: 2 }}
                     >
-                        Masuk
+                        Sign In
                     </Button>
                     <Grid container>
                         <Grid item>
