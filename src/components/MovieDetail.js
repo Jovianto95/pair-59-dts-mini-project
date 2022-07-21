@@ -8,7 +8,7 @@ const MovieDetail = ({ data }) => {
     <div>
       <div className="detail-movie-poster">
         <div className="detail-movie-poster-contain">
-          <h1>{`${data.title} (${data.release_date.split("-")[0]})`}</h1>
+          <h1>{`${data.title} (${data.release_date})`}</h1>
           <div className="truncate">
             <p>{data.overview}</p>
           </div>
