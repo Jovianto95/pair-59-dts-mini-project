@@ -10,7 +10,7 @@ import {Link} from 'react-router-dom';
 
 const SlideShow = ()=>{
     const [movies, setMovies]= useState([]);
-    const baseUrlForMovie = 'https://www.themoviedb.org/movie/';
+    const baseUrlForMovie = 'http://image.tmdb.org/t/p/original/';
 
     useEffect(()=>{
         const fetchDataMovies = async () => {
