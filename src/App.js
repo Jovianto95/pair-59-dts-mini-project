@@ -17,7 +17,8 @@ import Footer from './components/Footer';
 import Home from './containers/Home';
 import theme from './themes/theme';
 import React from 'react';
-import slideShow from './components/swiper';
+import SlideShow from './components/swiper';
+
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
             <>
               <Navbar />
               <Home />
-              <slideShow />
+              <SlideShow />
+
               <Footer />
             </>
             

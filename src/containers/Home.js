@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import React from 'react';
 import tmdb from '../apis/tmdb';
 import MovieCard from '../components/MovieCard';
-import slideShow from '../components/swiper';
+
 
 const Home = () => {
     const [queryParams, setQueryParams] = useSearchParams();
@@ -88,7 +88,6 @@ const Home = () => {
                     ))
                 }
             </Box>
-            <slideShow />
         </Box>
     );
 }

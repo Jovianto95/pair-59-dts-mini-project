@@ -10,7 +10,7 @@ import {Link} from 'react-router-dom';
 
 const SlideShow = ()=>{
     const [movies, setMovies]= useState([]);
-    const baseUrlForMovie = 'https://www.themoviedb.org/t/p';
+    const baseUrlForMovie = 'https://www.themoviedb.org/movie/';
 
     useEffect(()=>{
         const fetchDataMovies = async () => {
@@ -30,7 +30,7 @@ const SlideShow = ()=>{
         <>
         <Swiper
             slidesPerView={'auto'}
-            spaceBetween={30}
+            spaceBetween={10}
             autoplay
             pagination={{clickable:true}}
             navigation={true}
@@ -39,14 +39,15 @@ const SlideShow = ()=>{
             {movies.map((movie) => {
                 return(
                     <SwiperSlide key={movie.id}>
-                        <Card className='boxy' sx={{width:'100%'}}>
-                            <Link style={{textDecoration:'none'}} to={`/DetailFilm/${movie.id}`}>
+                        <Card className='boxy' sx={{width:'20%'}}>
+                            <Link style={{textDecoration:'none'}} to={`/DetailMovie/${movie.id}`}>
                                 <Box className='boxy' sx={{width:'80em', objectFit:'cover'
                                     , objectPosition:'center', height:'20em'}}>
                                     <CardMedia
                                         component='img'
                                         image={`${baseUrlForMovie}${movie.backdrop_path}`}
-                                        alt={movie.title}></CardMedia>
+                                        alt={movie.title}>
+                                    </CardMedia>
                                     </Box>
                             </Link>
                         </Card>

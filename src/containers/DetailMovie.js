@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 export const DetailMovie = () => {
   let params = useParams();
 
-  // const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [movie, setMovie] = useState([]);
 
   const idMovie = params.id;
@@ -13,7 +13,7 @@ export const DetailMovie = () => {
     const fetchMovie = async () => {
       try {
         const fetchedMovie = await tmdb.get(`movie/${idMovie}`);
-        setMovie(fetchedMovie.data);
+        setMovies(fetchedMovie.data);
       } catch (error) {
         console.log(error);
       }
