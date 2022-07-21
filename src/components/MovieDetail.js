@@ -1,8 +1,10 @@
 import React from "react";
+import Navbar from "./Navbar";
 
 const MovieDetail = ({ data }) => {
   const BASE_IMAGE_URL = "http://image.tmdb.org/t/p/original";
   return (
+    <><Navbar/>
     <div>
       <div className="detail-movie-poster">
         <div className="detail-movie-poster-contain">
@@ -48,6 +50,7 @@ const MovieDetail = ({ data }) => {
         <p>{data.overview}</p>
       </div>
     </div>
+    </>
   );
 };
 
