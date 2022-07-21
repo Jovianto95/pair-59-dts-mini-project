@@ -1,25 +1,27 @@
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
+import { MovieFilter } from '@mui/icons-material';
+import { alpha, InputBase, styled } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
-import { alpha, styled } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import SearchIcon from '@mui/icons-material/Search';
 import * as React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+
+import MenuLogout from './MenuLogout';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: alpha(theme.palette.common.white, 0.55),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: alpha(theme.palette.common.white, 0.35),
   },
+  marginRight: theme.spacing(2),
   marginLeft: 0,
   width: '100%',
   [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
+    marginLeft: theme.spacing(3),
     width: 'auto',
   },
 }));
@@ -34,6 +36,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   justifyContent: 'center',
 }));
 
+
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
@@ -42,36 +45,45 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '20ch',
-      },
+    [theme.breakpoints.up('md')]: {
+      width: '20ch',
     },
   },
 }));
 
+const navItems = [
+  { text: 'HOME', link: '/' },
+  { text: 'BUY', link: '/pricing' },
+  { text: 'ABOUT', link: '/about' },
+  { text: 'CONTACT US', link: '/kontak' }
+];
+
 const Navbar = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box sx={{ display: 'flex' }}>
+      <AppBar>
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
+          <MovieFilter sx={{ display: 'flex', mr: 1 }} />
+          <Typography
+            variant="h6"
+            sx={{
+              flexGrow: 1,
+              display: 'block',
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+            }}
           >
-            <MenuIcon />
-          </IconButton>
+            <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to="/">
+              |Web Film DigiTelent
+            </Link>
+          </Typography>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            Which to Watch
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -82,6 +94,19 @@ const Navbar = () => {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: 'block' }}>
+            {navItems.map((item) => (
+              <NavLink
+                to={item.link}
+                key={item.text}
+                className={({ isActive }) => isActive ? 'nav-active' : 'nav-inactive'}
+              >
+                {item.text}
+              </NavLink>
+            ))}
+            <MenuLogout />
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>

@@ -3,12 +3,18 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const BASE_IMAGE_URL = "http://image.tmdb.org/t/p/original";
 
 const MovieCard = ({ movie }) => {
+  let navigate = useNavigate();
+
+  const toDetail = (movie) => {
+    navigate(`/movie/${movie.id}`)
+  };
   return (
-    <Card id={movie.id} sx={{ display: 'flex', width: 400, margin: 5 }}>
+    <Card id={movie.id} sx={{ display: 'flex', width: 400, margin: 5 }} onClick={() => toDetail(movie)}>
       <CardMedia
         component="img"
         sx={{ width: 150, height: 225 }}
@@ -31,7 +37,7 @@ const MovieCard = ({ movie }) => {
             }}
           >
             <Rating name="read-only" precision={0.1} value={movie.vote_average / 2} max={5} readOnly />
-            <Box sx={{ ml: 2 }}>{movie.vote_average}</Box>
+            <Box sx={{ ml: 2 }}>{movie.vote_average.toFixed(1)}</Box>
           </Box>
         </CardContent>
       </Box>
